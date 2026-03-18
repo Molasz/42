@@ -15,12 +15,12 @@ const D = [
     lv: 0,
     lbl: "Piscine",
     desc: "Intensive 4-week bootcamp covering C, algorithms, memory management and Unix fundamentals — the foundation of the 42 curriculum.",
-    repo: "https://github.com/Molasz/42cursus-libft",
+    repo: "https://github.com/Molasz/42Piscine",
   },
 
   {
-    x: 90,
-    y: 0,
+    x: 50,
+    y: 60,
     r: 26,
     lines: ["Piscine", "Reloaded"],
     fs: 10,
@@ -28,7 +28,20 @@ const D = [
     lv: 0,
     lbl: "Piscine Reloaded",
     desc: "Review of the Piscine with additional exercises, focusing on optimization and best practices — essential reinforcement before the projects.",
-    repo: "https://github.com/Molasz/42cursus-libft",
+    repo: "https://github.com/Molasz/42PiscineReloaded",
+  },
+
+  {
+    x: 90,
+    y: 0,
+    r: 26,
+    lines: ["BSQ"],
+    fs: 10,
+    c: 1,
+    lv: 0,
+    lbl: "BSQ",
+    desc: "The classic 'Biggest Square' problem — find the largest square in a grid with obstacles, using dynamic programming and efficient file parsing.",
+    repo: "https://github.com/photocatalysta/42-Piscine-BSQ-Project",
   },
 
   {
@@ -123,18 +136,6 @@ const D = [
     desc: "A fully functional Unix shell with pipes, redirections, heredocs, variable expansion and all builtins.",
     repo: "https://github.com/Molasz/42cursus-minishell",
   },
-
-  {
-    x: 243,
-    y: 82,
-    r: 26,
-    lines: ["net", "practice"],
-    fs: 9,
-    lv: 4,
-    lbl: "NetPractice",
-    desc: "Network configuration exercises covering subnetting, routing tables and IP addressing.",
-    repo: "https://github.com/Molasz",
-  },
   {
     x: 522,
     y: 173,
@@ -155,7 +156,7 @@ const D = [
     lv: 4,
     lbl: "C++ Modules",
     desc: "10 modules covering C++98 OOP: Orthodox Canonical Form, polymorphism, templates, STL and exceptions.",
-    repo: "https://github.com/Molasz/42cursus-cpp",
+    repo: "https://github.com/Molasz/42cursus-cpp_modules",
   },
   {
     x: 243,
@@ -336,13 +337,13 @@ function mv(e) {
 }
 
 // Zoom and pan variables
-let scale = 1.9;
+let scale = 2.4;
 const minScale = 0.5;
 const maxScale = 3;
 
 const initialVbSize = 640 * scale;
 const initialVbX = 320 - initialVbSize / 2;
-const initialVbY = 420 - initialVbSize / 2;
+const initialVbY = 620 - initialVbSize / 2;
 svg.setAttribute(
   "viewBox",
   `${initialVbX} ${initialVbY} ${initialVbSize} ${initialVbSize}`,
