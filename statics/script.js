@@ -145,7 +145,7 @@ const D = [
     lv: 4,
     lbl: "cub3D",
     desc: "Raycasting engine inspired by Wolfenstein 3D — DDA algorithm, textures, minimap, built with MLX42.",
-    repo: "https://github.com/Molasz/42cursus-cub3D",
+    repo: "https://github.com/asiernc/cub3d",
   },
   {
     x: 522,
@@ -178,7 +178,7 @@ const D = [
     lv: 4,
     lbl: "webserv",
     desc: "HTTP/1.1 web server in C++ with config files, virtual hosts, CGI and non-blocking I/O.",
-    repo: "https://github.com/Molasz",
+    repo: "https://github.com/DISN-kolo/webserv",
   },
 
   {
@@ -190,7 +190,7 @@ const D = [
     lv: 5,
     lbl: "ft_transcendence",
     desc: "Full-stack Pong platform: Django + PostgreSQL + Vanilla JS + Docker. WebSockets, JWT, 2FA, OAuth and 3D rendering.",
-    repo: "https://github.com/Molasz/42cursus-ft_transcendence",
+    repo: "https://github.com/MartiVallhonrat/ft_transcendence",
   },
 ];
 
