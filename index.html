@@ -38,12 +38,64 @@
         );
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         min-height: 100vh;
         font-family: ui-sans-serif, system-ui, sans-serif;
-        padding: 20px;
         color: var(--color-primary);
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(6, 16, 34, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--color-border);
+      }
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .header-left .header-title {
+        color: var(--color-primary);
+        font-size: clamp(14px, 2.5vw, 18px);
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+      .header-right .email-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--color-text);
+        text-decoration: none;
+        font-size: clamp(12px, 2vw, 14px);
+        font-weight: 500;
+        transition: all var(--transition-speed);
+      }
+      .header-right .email-link:hover {
+        color: var(--color-primary);
+        opacity: 0.8;
+      }
+      .email-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        padding-top: 100px; /* Espacio para el header fijo */
       }
       h1 {
         color: var(--color-primary);
@@ -127,8 +179,9 @@
       }
 
       @media (max-width: 480px) {
-        body {
+        main {
           padding: 15px;
+          padding-top: 80px;
         }
         #wrap {
           max-width: 100vw;
@@ -136,6 +189,19 @@
         #tip {
           max-width: 180px;
           font-size: 10px;
+        }
+        .header-content {
+          padding: 12px 15px;
+          flex-direction: column;
+          gap: 10px;
+          align-items: flex-start;
+        }
+        .header-right .email-link {
+          font-size: 11px;
+        }
+        .email-icon {
+          width: 14px;
+          height: 14px;
         }
       }
 
@@ -146,8 +212,9 @@
       }
 
       @media (min-width: 769px) {
-        body {
+        main {
           padding: 30px;
+          padding-top: 120px;
         }
         h1 {
           margin-bottom: 20px;
@@ -176,16 +243,51 @@
     </style>
   </head>
   <body>
-    <h1>42 Barcelona &mdash; molasz-a</h1>
-    <div id="wrap">
-      <svg viewBox="0 0 640 640"></svg>
-      <div id="tip"></div>
-    </div>
-    <footer>Click any node to open the repo</footer>
+    <header>
+      <div class="header-content">
+        <div class="header-left">
+          <span class="header-title">molasz-a 42 barcelona</span>
+        </div>
+        <div class="header-right">
+          <a href="mailto:molasz.dev@gmail.com" class="email-link">
+            <svg
+              class="email-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <polyline
+                points="22,6 12,13 2,6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            molasz.dev@gmail.com
+          </a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h1>Common core</h1>
+      <div id="wrap">
+        <svg viewBox="0 0 640 640"></svg>
+        <div id="tip"></div>
+      </div>
+      <footer>Click any node to open the repo</footer>
+    </main>
 
     <script>
       const N = "http://www.w3.org/2000/svg";
-      const svg = document.querySelector("svg");
+      const svg = document.getElementById("wrap").querySelector("svg");
       const tip = document.getElementById("tip");
 
       const D = [
@@ -193,7 +295,7 @@
           x: 320,
           y: 320,
           r: 26,
-          lines: ["Libft"],
+          lines: ["libft"],
           fs: 11,
           c: 1,
           lv: 0,
@@ -217,7 +319,7 @@
           x: 251,
           y: 360,
           r: 26,
-          lines: ["get_next", "line"],
+          lines: ["GNL"],
           fs: 9,
           lv: 1,
           lbl: "get_next_line",
@@ -251,10 +353,10 @@
           x: 253,
           y: 203,
           r: 26,
-          lines: ["FdF"],
+          lines: ["FDF"],
           fs: 14,
           lv: 2,
-          lbl: "FdF",
+          lbl: "FDF",
           desc: "3D wireframe terrain renderer — read elevation maps and project them in isometric 3D using MiniLibX.",
           repo: "https://github.com/Molasz/42cursus-fdf",
         },
@@ -263,8 +365,8 @@
           x: 501,
           y: 379,
           r: 26,
-          lines: ["philo", "sophers"],
-          fs: 9,
+          lines: ["philosophers"],
+          fs: 8,
           lv: 3,
           lbl: "philosophers",
           desc: "The Dining Philosophers problem — threads, mutexes and deadlock prevention in C.",
@@ -274,7 +376,7 @@
           x: 139,
           y: 261,
           r: 26,
-          lines: ["mini", "shell"],
+          lines: ["minishell"],
           fs: 9,
           lv: 3,
           lbl: "minishell",
@@ -342,8 +444,8 @@
           x: 320,
           y: 600,
           r: 26,
-          lines: ["ft_trans", "cendence"],
-          fs: 7,
+          lines: ["ft_transcendence"],
+          fs: 6,
           lv: 5,
           lbl: "ft_transcendence",
           desc: "Full-stack Pong platform: Django + PostgreSQL + Vanilla JS + Docker. WebSockets, JWT, 2FA, OAuth and 3D rendering.",
