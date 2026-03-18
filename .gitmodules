@@ -1,0 +1,33 @@
+[submodule "piscine"]
+	path = piscine
+	url = https://github.com/Molasz/42Piscine
+[submodule "common-core/rank-0/libft"]
+	path = common-core/rank-0/libft
+	url = https://github.com/Molasz/42cursus-libft
+[submodule "common-core/rank-1/ft_printf"]
+	path = common-core/rank-1/ft_printf
+	url = https://github.com/Molasz/42cursus-printf
+[submodule "common-core/rank-1/get_next_line"]
+	path = common-core/rank-1/get_next_line
+	url = https://github.com/Molasz/42cursus-get_next_line
+[submodule "common-core/rank-2/push_swap"]
+	path = common-core/rank-2/push_swap
+	url = https://github.com/Molasz/42cursus-push_swap
+[submodule "common-core/rank-2/fdf"]
+	path = common-core/rank-2/fdf
+	url = https://github.com/Molasz/42cursus-FDF
+[submodule "common-core/rank-2/pipex"]
+	path = common-core/rank-2/pipex
+	url = https://github.com/Molasz/42cursus-pipex
+[submodule "common-core/rank-3/philosophers"]
+	path = common-core/rank-3/philosophers
+	url = https://github.com/Molasz/42cursus-philosophers
+[submodule "common-core/rank-3/minishell"]
+	path = common-core/rank-3/minishell
+	url = https://github.com/Molasz/42cursus-minishell
+[submodule "common-core/rank-4/inception"]
+	path = common-core/rank-4/inception
+	url = https://github.com/Molasz/42cursus-inception
+[submodule "common-core/rank-5/cpp_modules"]
+	path = common-core/rank-5/cpp_modules
+	url = https://github.com/Molasz/42cursus-cpp_modules
