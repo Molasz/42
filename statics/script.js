@@ -6,7 +6,7 @@ const tip = document.getElementById("tip");
 
 const D = [
   {
-    x: 10,
+    x: -70,
     y: 0,
     r: 26,
     lines: ["Piscine"],
@@ -19,7 +19,7 @@ const D = [
   },
 
   {
-    x: 50,
+    x: -25,
     y: 60,
     r: 26,
     lines: ["Piscine", "Reloaded"],
@@ -32,7 +32,7 @@ const D = [
   },
 
   {
-    x: 90,
+    x: 20,
     y: 0,
     r: 26,
     lines: ["BSQ"],
@@ -192,6 +192,45 @@ const D = [
     desc: "Full-stack Pong platform: Django + PostgreSQL + Vanilla JS + Docker. WebSockets, JWT, 2FA, OAuth and 3D rendering.",
     repo: "https://github.com/MartiVallhonrat/ft_transcendence",
   },
+
+  {
+    x: 630,
+    y: 20,
+    r: 26,
+    lines: ["libasm"],
+    fs: 10,
+    c: 1,
+    lv: "Level 4",
+    lbl: "libasm",
+    desc: "Re-implement core C functions in x86-64 assembly — ft_strlen, ft_strcpy, ft_strcmp, ft_write, ft_read, ft_strdup. Learn low-level programming and calling conventions.",
+    repo: "https://github.com/Molasz/42outer-libasm",
+  },
+
+  {
+    x: 710,
+    y: 20,
+    r: 26,
+    lines: ["dr-quine"],
+    fs: 10,
+    c: 1,
+    lv: "Level 4",
+    lbl: "dr-quine",
+    desc: "Create self-replicating programs (quines) in C, asm and JS — programs that output their own source code. Explore code generation and self-reference.",
+    repo: "https://github.com/Molasz/42outer-dr-quine",
+  },
+
+  {
+    x: 670,
+    y: 90,
+    r: 26,
+    lines: ["nm"],
+    fs: 16,
+    c: 1,
+    lv: "Level 4",
+    lbl: "nm",
+    desc: "Re-implement the nm command — display symbol table of object files. Parse ELF format, handle symbols, types and values.",
+    repo: "https://github.com/Molasz/42outer-nm",
+  },
 ];
 
 const RINGS = [
@@ -257,32 +296,36 @@ for (const rg of RINGS) {
 }
 
 // Titles
+const textStyle = {
+  "text-anchor": "middle",
+  fill: "#1ae0c8",
+  "font-size": 18,
+  "font-family": "ui-sans-serif,system-ui,sans-serif",
+  "font-weight": "600",
+  "letter-spacing": "2px",
+  "text-transform": "uppercase",
+  opacity: 0.8,
+};
+
 svg.append(
   tx("Common core", {
     x: 320,
     y: 0,
-    "text-anchor": "middle",
-    fill: "#1ae0c8",
-    "font-size": 18,
-    "font-family": "ui-sans-serif,system-ui,sans-serif",
-    "font-weight": "600",
-    "letter-spacing": "2px",
-    "text-transform": "uppercase",
-    opacity: 0.8,
+    ...textStyle,
   }),
 );
 svg.append(
   tx("Piscine", {
-    x: 50,
+    x: -20,
     y: -40,
-    "text-anchor": "middle",
-    fill: "#1ae0c8",
-    "font-size": 14,
-    "font-family": "ui-sans-serif,system-ui,sans-serif",
-    "font-weight": "600",
-    "letter-spacing": "2px",
-    "text-transform": "uppercase",
-    opacity: 0.8,
+    ...textStyle,
+  }),
+);
+svg.append(
+  tx("Outer Core", {
+    x: 670,
+    y: -40,
+    ...textStyle,
   }),
 );
 
