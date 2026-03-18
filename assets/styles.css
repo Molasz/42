@@ -1,3 +1,19 @@
+@keyframes g42FadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+svg * {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
 :root {
   --color-primary: #1ae0c8;
   --color-accent: #0a0e1a;
@@ -52,6 +68,13 @@ header {
   text-transform: uppercase;
   opacity: 0.8;
 }
+.header-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
 .header-right .email-link {
   display: flex;
   align-items: center;
@@ -61,6 +84,29 @@ header {
   font-size: clamp(12px, 2vw, 14px);
   font-weight: 500;
   transition: all var(--transition-speed);
+}
+#replay-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text);
+  font-size: clamp(12px, 2vw, 14px);
+  font-weight: 500;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+#replay-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+#replay-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }
 .header-right .email-link:hover {
   color: var(--color-primary);

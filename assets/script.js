@@ -1,12 +1,56 @@
 "use strict";
 
+const ANIM_GROUPS = [
+  "title-piscine",
+  "nodes-piscine",
+  "title-cc",
+  "bg-rings",
+  "rank-0",
+  "rank-1",
+  "rank-2",
+  "rank-3",
+  "rank-4",
+  "rank-5",
+  "rank-6",
+  "title-oc",
+  "nodes-oc",
+];
+
+const ANIM_FADE = 300;
+const ANIM_STEP = (5 * 1000) / ANIM_GROUPS.length;
+
+const ANIM_REGISTRY = [];
+
+function registerAnim(el, group) {
+  el.style.opacity = "0";
+  ANIM_REGISTRY.push({ el, group });
+}
+
+function playIntro() {
+  for (const { el, group } of ANIM_REGISTRY) {
+    const step = ANIM_GROUPS.indexOf(group);
+    if (step === -1) continue;
+    el.style.animation = `g42FadeIn ${ANIM_FADE}ms ease forwards`;
+    el.style.animationDelay = step * ANIM_STEP + "ms";
+  }
+}
+
+function replayIntro() {
+  for (const { el } of ANIM_REGISTRY) {
+    el.style.animation = "none";
+    el.style.opacity = "0";
+  }
+  setTimeout(() => playIntro(), 100);
+}
+
 const N = "http://www.w3.org/2000/svg";
 const svg = document.getElementById("graph");
 const tip = document.getElementById("tip");
 
 const D = [
+  // ── PISCINE ──
   {
-    x: -70,
+    x: -165,
     y: 0,
     r: 26,
     lines: ["Piscine"],
@@ -14,12 +58,12 @@ const D = [
     c: 1,
     lv: "Piscine",
     lbl: "Piscine",
+    animGroup: "nodes-piscine",
     desc: "Intensive 4-week bootcamp covering C, algorithms, memory management and Unix fundamentals — the foundation of the 42 curriculum.",
     repo: "https://github.com/Molasz/42Piscine",
   },
-
   {
-    x: -25,
+    x: -130,
     y: 60,
     r: 26,
     lines: ["Piscine", "Reloaded"],
@@ -27,12 +71,12 @@ const D = [
     c: 1,
     lv: "Piscine",
     lbl: "Piscine Reloaded",
+    animGroup: "nodes-piscine",
     desc: "Review of the Piscine with additional exercises, focusing on optimization and best practices — essential reinforcement before the projects.",
     repo: "https://github.com/Molasz/42PiscineReloaded",
   },
-
   {
-    x: 20,
+    x: -95,
     y: 0,
     r: 26,
     lines: ["BSQ"],
@@ -40,10 +84,12 @@ const D = [
     c: 1,
     lv: "Piscine",
     lbl: "BSQ",
+    animGroup: "nodes-piscine",
     desc: "The classic 'Biggest Square' problem — find the largest square in a grid with obstacles, using dynamic programming and efficient file parsing.",
     repo: "https://github.com/photocatalysta/42-Piscine-BSQ-Project",
   },
 
+  // ── COMMON CORE ──
   {
     x: 320,
     y: 320,
@@ -53,6 +99,7 @@ const D = [
     c: 1,
     lv: "Level 0",
     lbl: "libft",
+    animGroup: "rank-0",
     desc: "Re-implement the C standard library from scratch — the backbone of every project that follows.",
     repo: "https://github.com/Molasz/42cursus-libft",
   },
@@ -65,6 +112,7 @@ const D = [
     fs: 8,
     lv: "Level 1",
     lbl: "ft_printf",
+    animGroup: "rank-1",
     desc: "Re-implementation of printf using variadic functions — flags, width, precision and justification.",
     repo: "https://github.com/Molasz/42cursus-ft_printf",
   },
@@ -76,6 +124,7 @@ const D = [
     fs: 9,
     lv: "Level 1",
     lbl: "get_next_line",
+    animGroup: "rank-1",
     desc: "Read any file descriptor one line at a time with a configurable BUFFER_SIZE.",
     repo: "https://github.com/Molasz/42cursus-get_next_line",
   },
@@ -88,6 +137,7 @@ const D = [
     fs: 8,
     lv: "Level 2",
     lbl: "push_swap",
+    animGroup: "rank-2",
     desc: "Sort a stack of integers using only two stacks and a minimum number of operations.",
     repo: "https://github.com/Molasz/42cursus-push_swap",
   },
@@ -99,6 +149,7 @@ const D = [
     fs: 11,
     lv: "Level 2",
     lbl: "pipex",
+    animGroup: "rank-2",
     desc: "Recreate shell pipes using fork, execve and file descriptor redirection.",
     repo: "https://github.com/Molasz/42cursus-pipex",
   },
@@ -110,6 +161,7 @@ const D = [
     fs: 14,
     lv: "Level 2",
     lbl: "FDF",
+    animGroup: "rank-2",
     desc: "3D wireframe terrain renderer — read elevation maps and project them in isometric 3D using MiniLibX.",
     repo: "https://github.com/Molasz/42cursus-fdf",
   },
@@ -122,6 +174,7 @@ const D = [
     fs: 8,
     lv: "Level 3",
     lbl: "philosophers",
+    animGroup: "rank-3",
     desc: "The Dining Philosophers problem — threads, mutexes and deadlock prevention in C.",
     repo: "https://github.com/Molasz/42cursus-philosophers",
   },
@@ -133,9 +186,11 @@ const D = [
     fs: 9,
     lv: "Level 3",
     lbl: "minishell",
+    animGroup: "rank-3",
     desc: "A fully functional Unix shell with pipes, redirections, heredocs, variable expansion and all builtins.",
     repo: "https://github.com/Molasz/42cursus-minishell",
   },
+
   {
     x: 522,
     y: 173,
@@ -144,6 +199,7 @@ const D = [
     fs: 11,
     lv: "Level 4",
     lbl: "cub3D",
+    animGroup: "rank-4",
     desc: "Raycasting engine inspired by Wolfenstein 3D — DDA algorithm, textures, minimap, built with MLX42.",
     repo: "https://github.com/asiernc/cub3d",
   },
@@ -155,6 +211,7 @@ const D = [
     fs: 10,
     lv: "Level 4",
     lbl: "C++ Modules",
+    animGroup: "rank-4",
     desc: "10 modules covering C++98 OOP: Orthodox Canonical Form, polymorphism, templates, STL and exceptions.",
     repo: "https://github.com/Molasz/42cursus-cpp_modules",
   },
@@ -166,6 +223,7 @@ const D = [
     fs: 8,
     lv: "Level 4",
     lbl: "Inception",
+    animGroup: "rank-4",
     desc: "Docker infrastructure from scratch: NGINX + WordPress + MariaDB, persistent volumes, no pre-built images.",
     repo: "https://github.com/Molasz/42cursus-inception",
   },
@@ -177,6 +235,7 @@ const D = [
     fs: 9,
     lv: "Level 4",
     lbl: "webserv",
+    animGroup: "rank-4",
     desc: "HTTP/1.1 web server in C++ with config files, virtual hosts, CGI and non-blocking I/O.",
     repo: "https://github.com/DISN-kolo/webserv",
   },
@@ -184,63 +243,71 @@ const D = [
   {
     x: 320,
     y: 600,
-    r: 26,
+    r: 38,
     lines: ["ft_transcendence"],
-    fs: 6,
+    fs: 8,
     lv: "Level 5",
     lbl: "ft_transcendence",
+    animGroup: "rank-5",
     desc: "Full-stack Pong platform: Django + PostgreSQL + Vanilla JS + Docker. WebSockets, JWT, 2FA, OAuth and 3D rendering.",
     repo: "https://github.com/MartiVallhonrat/ft_transcendence",
   },
 
+  // ── OUTER CORE ──
   {
-    x: 630,
-    y: 20,
+    x: 740,
+    y: 0,
     r: 26,
     lines: ["libasm"],
     fs: 10,
     c: 1,
-    lv: "Level 4",
+    lv: "Outer Core",
     lbl: "libasm",
+    animGroup: "nodes-oc",
     desc: "Re-implement core C functions in x86-64 assembly — ft_strlen, ft_strcpy, ft_strcmp, ft_write, ft_read, ft_strdup. Learn low-level programming and calling conventions.",
     repo: "https://github.com/Molasz/42outer-libasm",
   },
 
   {
-    x: 710,
-    y: 20,
+    x: 810,
+    y: 0,
     r: 26,
     lines: ["dr-quine"],
     fs: 10,
     c: 1,
-    lv: "Level 4",
+    lv: "Outer Core",
     lbl: "dr-quine",
+    animGroup: "nodes-oc",
     desc: "Create self-replicating programs (quines) in C, asm and JS — programs that output their own source code. Explore code generation and self-reference.",
     repo: "https://github.com/Molasz/42outer-dr-quine",
   },
 
   {
-    x: 670,
-    y: 90,
+    x: 775,
+    y: 60,
     r: 26,
     lines: ["nm"],
     fs: 16,
     c: 1,
-    lv: "Level 4",
+    lv: "Outer Core",
     lbl: "nm",
+    animGroup: "nodes-oc",
     desc: "Re-implement the nm command — display symbol table of object files. Parse ELF format, handle symbols, types and values.",
     repo: "https://github.com/Molasz/42outer-nm",
   },
 ];
 
+// ─── ORBIT RINGS ─────────────────────────────────────────────────────────────
 const RINGS = [
   { r: 80, lbl: "1" },
   { r: 135, lbl: "2" },
   { r: 190, lbl: "3" },
-  { r: 250, lbl: "4" },
-  { r: 290, lbl: "5" },
+  { r: 245, lbl: "4" },
+  { r: 300, lbl: "5" },
+  { r: 345, lbl: "6" },
 ];
 
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
 function mk(tag, a = {}) {
   const e = document.createElementNS(N, tag);
   for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
@@ -253,46 +320,48 @@ function tx(t, a = {}) {
   return e;
 }
 
+// ─── BUILD SVG ───────────────────────────────────────────────────────────────
+
 // Background circles
-svg.append(mk("circle", { cx: 320, cy: 320, r: 310, fill: "#0a1628" }));
-svg.append(
-  mk("circle", {
-    cx: 320,
-    cy: 320,
-    r: 310,
-    fill: "none",
-    stroke: "#1ae0c8",
-    "stroke-width": 0.4,
-    opacity: 0.1,
-  }),
-);
+const bgFill = mk("circle", { cx: 320, cy: 320, r: 345, fill: "#0a1628" });
+const bgBorder = mk("circle", {
+  cx: 320,
+  cy: 320,
+  r: 345,
+  fill: "none",
+  stroke: "#1ae0c8",
+  "stroke-width": 0.4,
+  opacity: 0.1,
+});
+registerAnim(bgFill, "bg-rings");
+registerAnim(bgBorder, "bg-rings");
+svg.append(bgFill, bgBorder);
 
 // Orbit rings + level labels
 for (const rg of RINGS) {
-  svg.append(
-    mk("circle", {
-      cx: 320,
-      cy: 320,
-      r: rg.r,
-      fill: "none",
-      stroke: "#1ae0c8",
-      "stroke-width": 0.7,
-      opacity: 0.2,
-    }),
-  );
-  svg.append(
-    tx(rg.lbl, {
-      x: 320,
-      y: 320 - rg.r - 7,
-      "text-anchor": "middle",
-      "dominant-baseline": "auto",
-      fill: "#1ae0c8",
-      opacity: 0.35,
-      "font-size": 9,
-      "font-family": "ui-sans-serif,system-ui,sans-serif",
-      "font-weight": "700",
-    }),
-  );
+  const ring = mk("circle", {
+    cx: 320,
+    cy: 320,
+    r: rg.r,
+    fill: "none",
+    stroke: "#1ae0c8",
+    "stroke-width": 0.7,
+    opacity: 0.2,
+  });
+  const lbl = tx(rg.lbl, {
+    x: 320,
+    y: 320 + rg.r + 7,
+    "text-anchor": "middle",
+    "dominant-baseline": "auto",
+    fill: "#1ae0c8",
+    opacity: 0.35,
+    "font-size": 9,
+    "font-family": "ui-sans-serif,system-ui,sans-serif",
+    "font-weight": "700",
+  });
+  registerAnim(ring, "bg-rings");
+  registerAnim(lbl, "bg-rings");
+  svg.append(ring, lbl);
 }
 
 // Titles
@@ -305,29 +374,17 @@ const textStyle = {
   "letter-spacing": "2px",
   "text-transform": "uppercase",
   opacity: 0.8,
+  y: -40,
+  x: 320,
 };
 
-svg.append(
-  tx("Common core", {
-    x: 320,
-    y: 0,
-    ...textStyle,
-  }),
-);
-svg.append(
-  tx("Piscine", {
-    x: -20,
-    y: -40,
-    ...textStyle,
-  }),
-);
-svg.append(
-  tx("Outer Core", {
-    x: 670,
-    y: -40,
-    ...textStyle,
-  }),
-);
+const titleCC = tx("Common core", { ...textStyle });
+const titlePis = tx("Piscine", { ...textStyle, x: textStyle.x - 450 });
+const titleOC = tx("Outer Core", { ...textStyle, x: textStyle.x + 450 });
+registerAnim(titlePis, "title-piscine");
+registerAnim(titleCC, "title-cc");
+registerAnim(titleOC, "title-oc");
+svg.append(titleCC, titlePis, titleOC);
 
 // Nodes
 for (const p of D) {
@@ -371,54 +428,45 @@ for (const p of D) {
     tip.style.opacity = "0";
   });
   g.addEventListener("click", () => window.open(p.repo, "_blank"));
+  registerAnim(g, p.animGroup);
   svg.append(g);
 }
+
 function mv(e) {
-  const r = document.getElementById("graph").getBoundingClientRect();
   tip.style.left = e.clientX + 16 + "px";
   tip.style.top = e.clientY - 8 + "px";
 }
 
-// Zoom and pan variables
-let scale = 2.4;
+// ─── ZOOM & PAN ──────────────────────────────────────────────────────────────
+let scale = 2.7;
 const minScale = 0.5;
 const maxScale = 3;
 
 const initialVbSize = 640 * scale;
 const initialVbX = 320 - initialVbSize / 2;
-const initialVbY = 620 - initialVbSize / 2;
+const initialVbY = 720 - initialVbSize / 2;
 svg.setAttribute(
   "viewBox",
   `${initialVbX} ${initialVbY} ${initialVbSize} ${initialVbSize}`,
 );
 
 let isDragging = false;
-let startX, startY;
-let startVbX, startVbY;
+let startX, startY, startVbX, startVbY;
 
-// Zoom event
 svg.addEventListener("wheel", (e) => {
   e.preventDefault();
   const vb = svg.getAttribute("viewBox").split(" ").map(Number);
-  const vbX = vb[0],
-    vbY = vb[1],
-    vbW = vb[2],
-    vbH = vb[3];
-
-  const currentCenterX = vbX + vbW / 2;
-  const currentCenterY = vbY + vbH / 2;
-
+  const centerX = vb[0] + vb[2] / 2;
+  const centerY = vb[1] + vb[3] / 2;
   const delta = e.deltaY > 0 ? 1.05 : 0.95;
-  scale *= delta;
-  scale = Math.min(Math.max(scale, minScale), maxScale);
-  const newVbW = 640 * scale;
-  const newVbH = 640 * scale;
-  const newVbX = currentCenterX - newVbW / 2;
-  const newVbY = currentCenterY - newVbH / 2;
-  svg.setAttribute("viewBox", `${newVbX} ${newVbY} ${newVbW} ${newVbH}`);
+  scale = Math.min(Math.max(scale * delta, minScale), maxScale);
+  const s = 640 * scale;
+  svg.setAttribute(
+    "viewBox",
+    `${centerX - s / 2} ${centerY - s / 2} ${s} ${s}`,
+  );
 });
 
-// Pan events
 svg.addEventListener("mousedown", (e) => {
   isDragging = true;
   startX = e.clientX;
@@ -434,12 +482,9 @@ svg.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
   const vb = svg.getAttribute("viewBox").split(" ").map(Number);
   const vbSize = vb[2];
-  const pixelsPerUnitX = window.innerWidth / vbSize;
-  const pixelsPerUnitY = window.innerHeight / vbSize;
-  const deltaX = (e.clientX - startX) / pixelsPerUnitX;
-  const deltaY = (e.clientY - startY) / pixelsPerUnitY;
-  const newVbX = startVbX - deltaX;
-  const newVbY = startVbY - deltaY;
+  const newVbX = startVbX - (e.clientX - startX) / (window.innerWidth / vbSize);
+  const newVbY =
+    startVbY - (e.clientY - startY) / (window.innerHeight / vbSize);
   svg.setAttribute("viewBox", `${newVbX} ${newVbY} ${vbSize} ${vbSize}`);
 });
 
@@ -447,8 +492,9 @@ svg.addEventListener("mouseup", () => {
   isDragging = false;
   svg.style.cursor = "grab";
 });
-
 svg.addEventListener("mouseleave", () => {
   isDragging = false;
   svg.style.cursor = "grab";
 });
+
+playIntro();

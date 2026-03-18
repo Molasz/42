@@ -26,7 +26,7 @@ The Methodology:
 <a href="https://molasz.github.io/42/" target="_blank">
     <div style="display: flex; align-items: center; flex-direction: column">
         <strong>View Interactive Project Map</strong>
-		<img src="statics/mapa_42.png" alt="Mapa de proyectos 42" width="400" style="border-radius: 12px; box-shadow: 0 2px 8px #0003; margin: 16px 0;"/>
+		<img src="assets/mapa_42.png" alt="Mapa de proyectos 42" width="400" style="border-radius: 12px; box-shadow: 0 2px 8px #0003; margin: 16px 0;"/>
     </div>
 </a>
 
