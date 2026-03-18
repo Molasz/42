@@ -1,3 +1,9 @@
+# Mapa de Proyectos 42
+
+# 42 Barcelona — molasz-a
+
+[Ir a la página principal](index.html)
+
 # 42 Barcelona — molasz-a
 
 Welcome to my 42 Common Core journey. This repository serves as a central hub for all the projects I have completed at 42 Barcelona, organized via Git submodules.
@@ -15,38 +21,43 @@ The Methodology:
 
 - Common Core: After the Piscine, students enter the Common Core, a rigorous path covering everything from Unix logic and algorithms to systems administration and web development.
 
-## 🚀 Projects Overview
+## 🌐 Interactive Project Map
+
+<a href="https://molasz.github.io/42/" target="_blank">
+    <div style="display: flex; align-items: center; flex-direction: column">
+        <strong>View Interactive Project Map</strong>
+		<img src="statics/mapa_42.png" alt="Mapa de proyectos 42" width="400" style="border-radius: 12px; box-shadow: 0 2px 8px #0003; margin: 16px 0;"/>
+    </div>
+</a>
+
+---
+
+### 🗺️ Projects
 
 The following projects represent the curriculum's progression, focusing on C, C++, and infrastructure.
-<a href="https://molasz.github.io/42/" target="_blank">**🌐 View Interactive Project Map**</a>
 
-### Rank 0: The Foundation
+<div align="center">
 
-**[Libft](https://www.google.com/search?q=./piscine)**: A custom-made C library re-implementing standard functions to be used throughout the curriculum.
+| **Proyecto**         | **Nivel** | **Descripción**                                                                                                                                |
+| -------------------- | :-------: | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Piscine**          |  Piscine  | Intensive 4-week bootcamp covering C, algorithms, memory management and Unix fundamentals — the foundation of the 42 curriculum.               |
+| **Piscine Reloaded** |  Piscine  | Review of the Piscine with additional exercises, focusing on optimization and best practices — essential reinforcement before the projects.    |
+| **BSQ**              |  Piscine  | The classic 'Biggest Square' problem — find the largest square in a grid with obstacles, using dynamic programming and efficient file parsing. |
+| **libft**            |     0     | Re-implement the C standard library from scratch — the backbone of every project that follows.                                                 |
+| **ft_printf**        |     1     | Re-implementation of printf using variadic functions — flags, width, precision and justification.                                              |
+| **get_next_line**    |     1     | Read any file descriptor one line at a time with a configurable BUFFER_SIZE.                                                                   |
+| **push_swap**        |     2     | Sort a stack of integers using only two stacks and a minimum number of operations.                                                             |
+| **pipex**            |     2     | Recreate shell pipes using fork, execve and file descriptor redirection.                                                                       |
+| **FDF**              |     2     | 3D wireframe terrain renderer — read elevation maps and project them in isometric 3D using MiniLibX.                                           |
+| **philosophers**     |     3     | The Dining Philosophers problem — threads, mutexes and deadlock prevention in C.                                                               |
+| **minishell**        |     3     | A fully functional Unix shell with pipes, redirections, heredocs, variable expansion and all builtins.                                         |
+| **cub3D**            |     4     | Raycasting engine inspired by Wolfenstein 3D — DDA algorithm, textures, minimap, built with MLX42.                                             |
+| **C++ Modules**      |     4     | 10 modules covering C++98 OOP: Orthodox Canonical Form, polymorphism, templates, STL and exceptions.                                           |
+| **Inception**        |     4     | Docker infrastructure from scratch: NGINX + WordPress + MariaDB, persistent volumes, no pre-built images.                                      |
+| **webserv**          |     4     | HTTP/1.1 web server in C++ with config files, virtual hosts, CGI and non-blocking I/O.                                                         |
+| **ft_transcendence** |     5     | Full-stack Pong platform: Django + PostgreSQL + Vanilla JS + Docker. WebSockets, JWT, 2FA, OAuth and 3D rendering.                             |
 
-### Rank 1: Imperative Programming
-
-**[ft_printf](https://www.google.com/search?q=./common-core/rank-1/ft_printf)**: An implementation of the standard `printf` function in C.
-**[get_next_line](https://www.google.com/search?q=./common-core/rank-1/get_next_line)**: A function that returns a line read from a file descriptor, handling buffer management and memory leaks.
-
-### Rank 2: Algorithms & Graphics
-
-**[push_swap](https://www.google.com/search?q=./common-core/rank-2/push_swap)**: A highly optimized sorting algorithm using two stacks and a limited set of operations.
-**[fdf](https://www.google.com/search?q=./common-core/rank-2/fdf)**: A 3D wireframe renderer that converts a coordinates map into an isometric projection.
-**[pipex](https://www.google.com/search?q=./common-core/rank-2/pipex)**: A project exploring UNIX mechanisms by recreating the behavior of shell pipes and redirections.
-
-### Rank 3: Concurrency & Shell
-
-**[philosophers](https://www.google.com/search?q=./common-core/rank-3/philosophers)**: An introduction to multithreading and mutexes through the classic Dining Philosophers problem.
-**[minishell](https://www.google.com/search?q=./common-core/rank-3/minishell)**: Creation of a functional bash-like shell, including pipes, redirections, and signal handling.
-
-### Rank 4: Virtualization & Logic
-
-**[inception](https://www.google.com/search?q=./common-core/rank-4/inception)**: System administration project using Docker to set up a small infrastructure of services (NGINX, WordPress, MariaDB).
-
-### Rank 5: Object-Oriented Programming
-
-**[cpp_modules](https://www.google.com/search?q=./common-core/rank-5/cpp_modules)**: A series of modules designed to learn the fundamentals of C++ and Object-Oriented Programming (OOP).
+</div>
 
 ---
 
