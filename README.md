@@ -18,7 +18,7 @@ The Methodology:
 ## 🚀 Projects Overview
 
 The following projects represent the curriculum's progression, focusing on C, C++, and infrastructure.
-[**🌐 View Interactive Project Map**](https://molasz.github.io/42/)
+<a href="https://molasz.github.io/42/" target="_blank">**🌐 View Interactive Project Map**</a>
 
 ### Rank 0: The Foundation
 
