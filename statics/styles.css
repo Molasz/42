@@ -78,35 +78,6 @@ main {
   align-items: center;
   justify-content: center;
 }
-h1 {
-  color: var(--color-primary);
-  font-size: clamp(12px, 3vw, 16px);
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  opacity: 0.6;
-  margin-bottom: clamp(8px, 2vw, 16px);
-  text-align: center;
-}
-.title {
-  position: fixed;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--color-primary);
-  font-size: clamp(14px, 2.5vw, 18px);
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  opacity: 0.8;
-  z-index: 1001;
-}
-
-.common {
-}
-.piscine {
-}
-
 svg {
   display: block;
   width: 100%;

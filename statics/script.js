@@ -1,3 +1,5 @@
+"use strict";
+
 const N = "http://www.w3.org/2000/svg";
 const svg = document.getElementById("graph");
 const tip = document.getElementById("tip");
@@ -204,13 +206,14 @@ function mk(tag, a = {}) {
   for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
   return e;
 }
+
 function tx(t, a = {}) {
   const e = mk("text", a);
   e.textContent = t;
   return e;
 }
 
-// Background
+// Background circles
 svg.append(mk("circle", { cx: 320, cy: 320, r: 310, fill: "#0a1628" }));
 svg.append(
   mk("circle", {
@@ -252,7 +255,7 @@ for (const rg of RINGS) {
   );
 }
 
-// Title
+// Titles
 svg.append(
   tx("Common core", {
     x: 320,
@@ -267,7 +270,6 @@ svg.append(
     opacity: 0.8,
   }),
 );
-// Piscine title
 svg.append(
   tx("Piscine", {
     x: 50,
@@ -282,6 +284,7 @@ svg.append(
     opacity: 0.8,
   }),
 );
+
 // Nodes
 for (const p of D) {
   const g = mk("g", { class: "nd" });
@@ -332,6 +335,7 @@ function mv(e) {
   tip.style.top = e.clientY - 8 + "px";
 }
 
+// Zoom and pan variables
 let scale = 1.9;
 const minScale = 0.5;
 const maxScale = 3;
@@ -348,20 +352,14 @@ let isDragging = false;
 let startX, startY;
 let startVbX, startVbY;
 
+// Zoom event
 svg.addEventListener("wheel", (e) => {
   e.preventDefault();
-  const rect = svg.getBoundingClientRect();
-  const mouseX = e.clientX - rect.left;
-  const mouseY = e.clientY - rect.top;
   const vb = svg.getAttribute("viewBox").split(" ").map(Number);
   const vbX = vb[0],
     vbY = vb[1],
     vbW = vb[2],
     vbH = vb[3];
-  const scaleX = vbW / rect.width;
-  const scaleY = vbH / rect.height;
-  const svgX = vbX + mouseX * scaleX;
-  const svgY = vbY + mouseY * scaleY;
 
   const currentCenterX = vbX + vbW / 2;
   const currentCenterY = vbY + vbH / 2;
@@ -376,6 +374,7 @@ svg.addEventListener("wheel", (e) => {
   svg.setAttribute("viewBox", `${newVbX} ${newVbY} ${newVbW} ${newVbH}`);
 });
 
+// Pan events
 svg.addEventListener("mousedown", (e) => {
   isDragging = true;
   startX = e.clientX;
