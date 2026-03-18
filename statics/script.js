@@ -1,10 +1,10 @@
 const N = "http://www.w3.org/2000/svg";
-const svg = document.getElementById("wrap").querySelector("svg");
+const svg = document.getElementById("graph");
 const tip = document.getElementById("tip");
 
 const D = [
   {
-    x: 320,
+    x: 10,
     y: 0,
     r: 26,
     lines: ["Piscine"],
@@ -17,11 +17,11 @@ const D = [
   },
 
   {
-    x: 0,
+    x: 90,
     y: 0,
     r: 26,
-    lines: ["PiscineReloaded"],
-    fs: 11,
+    lines: ["Piscine", "Reloaded"],
+    fs: 10,
     c: 1,
     lv: 0,
     lbl: "Piscine Reloaded",
@@ -252,6 +252,36 @@ for (const rg of RINGS) {
   );
 }
 
+// Title
+svg.append(
+  tx("Common core", {
+    x: 320,
+    y: 0,
+    "text-anchor": "middle",
+    fill: "#1ae0c8",
+    "font-size": 18,
+    "font-family": "ui-sans-serif,system-ui,sans-serif",
+    "font-weight": "600",
+    "letter-spacing": "2px",
+    "text-transform": "uppercase",
+    opacity: 0.8,
+  }),
+);
+// Piscine title
+svg.append(
+  tx("Piscine", {
+    x: 50,
+    y: -40,
+    "text-anchor": "middle",
+    fill: "#1ae0c8",
+    "font-size": 14,
+    "font-family": "ui-sans-serif,system-ui,sans-serif",
+    "font-weight": "600",
+    "letter-spacing": "2px",
+    "text-transform": "uppercase",
+    opacity: 0.8,
+  }),
+);
 // Nodes
 for (const p of D) {
   const g = mk("g", { class: "nd" });
@@ -297,7 +327,85 @@ for (const p of D) {
   svg.append(g);
 }
 function mv(e) {
-  const r = document.getElementById("wrap").getBoundingClientRect();
+  const r = document.getElementById("graph").getBoundingClientRect();
   tip.style.left = e.clientX + 16 + "px";
   tip.style.top = e.clientY - 8 + "px";
 }
+
+let scale = 1.9;
+const minScale = 0.5;
+const maxScale = 3;
+
+const initialVbSize = 640 * scale;
+const initialVbX = 320 - initialVbSize / 2;
+const initialVbY = 420 - initialVbSize / 2;
+svg.setAttribute(
+  "viewBox",
+  `${initialVbX} ${initialVbY} ${initialVbSize} ${initialVbSize}`,
+);
+
+let isDragging = false;
+let startX, startY;
+let startVbX, startVbY;
+
+svg.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  const rect = svg.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+  const vb = svg.getAttribute("viewBox").split(" ").map(Number);
+  const vbX = vb[0],
+    vbY = vb[1],
+    vbW = vb[2],
+    vbH = vb[3];
+  const scaleX = vbW / rect.width;
+  const scaleY = vbH / rect.height;
+  const svgX = vbX + mouseX * scaleX;
+  const svgY = vbY + mouseY * scaleY;
+
+  const currentCenterX = vbX + vbW / 2;
+  const currentCenterY = vbY + vbH / 2;
+
+  const delta = e.deltaY > 0 ? 1.05 : 0.95;
+  scale *= delta;
+  scale = Math.min(Math.max(scale, minScale), maxScale);
+  const newVbW = 640 * scale;
+  const newVbH = 640 * scale;
+  const newVbX = currentCenterX - newVbW / 2;
+  const newVbY = currentCenterY - newVbH / 2;
+  svg.setAttribute("viewBox", `${newVbX} ${newVbY} ${newVbW} ${newVbH}`);
+});
+
+svg.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startX = e.clientX;
+  startY = e.clientY;
+  const vb = svg.getAttribute("viewBox").split(" ").map(Number);
+  startVbX = vb[0];
+  startVbY = vb[1];
+  svg.style.cursor = "grabbing";
+  e.preventDefault();
+});
+
+svg.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  const vb = svg.getAttribute("viewBox").split(" ").map(Number);
+  const vbSize = vb[2];
+  const pixelsPerUnitX = window.innerWidth / vbSize;
+  const pixelsPerUnitY = window.innerHeight / vbSize;
+  const deltaX = (e.clientX - startX) / pixelsPerUnitX;
+  const deltaY = (e.clientY - startY) / pixelsPerUnitY;
+  const newVbX = startVbX - deltaX;
+  const newVbY = startVbY - deltaY;
+  svg.setAttribute("viewBox", `${newVbX} ${newVbY} ${vbSize} ${vbSize}`);
+});
+
+svg.addEventListener("mouseup", () => {
+  isDragging = false;
+  svg.style.cursor = "grab";
+});
+
+svg.addEventListener("mouseleave", () => {
+  isDragging = false;
+  svg.style.cursor = "grab";
+});
