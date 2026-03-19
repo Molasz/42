@@ -1,77 +1,72 @@
 # 42 Barcelona — molasz-a
 
-Welcome to my 42 Common Core journey. This repository serves as a central hub for all the projects I have completed at 42 Barcelona, organized via Git submodules.
-
-## 💡 About 42 Network
-
-42 is a global, tuition-free computer science school that originated in Paris in 2013 to disrupt traditional education. It operates without teachers, classrooms, or textbooks. Instead, it relies on a 100% Peer-to-Peer learning model where students are responsible for their own success and the evaluation of their peers.
-The Methodology:
-
-- Project-Based Learning: The curriculum consists of increasingly complex technical challenges that must be solved from scratch.
-
-- Gamification: Progress is tracked through "levels" and "ranks," mirroring a skill tree in a video game.
-
-- The Piscine: Every student's journey begins with the "Piscine," a 4-week intensive C programming bootcamp to test logic and resilience.
-
-- Common Core: After the Piscine, students enter the Common Core, a rigorous path covering everything from Unix logic and algorithms to systems administration and web development.
-
-## 🌐 Interactive Project Map
-
 <div align="center">
-    <a href="https://molasz.github.io/42/" target="_blank">
-    <img src="assets/mapa_42.png" alt="42 projects map" width="400" style="border-radius: 12px; box-shadow: 0 2px 8px #0003; margin: 16px 0;"/>
-    </a>
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Molasz&layout=compact&theme=dark&bg_color=0a0e1a&title_color=1ae0c8&text_color=7ab5b0&border_color=1ae0c840&langs_count=6&hide_border=false)
+
+<a href="https://molasz.github.io/42/" target="_blank">
+  <img src="assets/mapa_42.png" alt="42 Interactive Project Map" width="420" style="border-radius: 12px;" />
+</a>
+
+**[→ Interactive Project Map ←](https://molasz.github.io/42/)**
 
 </div>
 
 ---
 
-### 🗺️ Projects
-
-The following projects represent the curriculum's progression, focusing on C, C++, and infrastructure.
-
-<div align="center">
-
-| **Proyecto**         | **Nivel** | **Descripción**                                                                                                                                                        |
-| -------------------- | :-------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Piscine**          |  Piscine  | Intensive 4-week bootcamp covering C, algorithms, memory management and Unix fundamentals — the foundation of the 42 curriculum.                                       |
-| **Piscine Reloaded** |  Piscine  | Review of the Piscine with additional exercises, focusing on optimization and best practices — essential reinforcement before the projects.                            |
-| **BSQ**              |  Piscine  | The classic 'Biggest Square' problem — find the largest square in a grid with obstacles, using dynamic programming and efficient file parsing.                         |
-| **libft**            |     0     | Re-implement the C standard library from scratch — the backbone of every project that follows.                                                                         |
-| **ft_printf**        |     1     | Re-implementation of printf using variadic functions — flags, width, precision and justification.                                                                      |
-| **get_next_line**    |     1     | Read any file descriptor one line at a time with a configurable BUFFER_SIZE.                                                                                           |
-| **push_swap**        |     2     | Sort a stack of integers using only two stacks and a minimum number of operations.                                                                                     |
-| **pipex**            |     2     | Recreate shell pipes using fork, execve and file descriptor redirection.                                                                                               |
-| **FDF**              |     2     | 3D wireframe terrain renderer — read elevation maps and project them in isometric 3D using MiniLibX.                                                                   |
-| **philosophers**     |     3     | The Dining Philosophers problem — threads, mutexes and deadlock prevention in C.                                                                                       |
-| **minishell**        |     3     | A fully functional Unix shell with pipes, redirections, heredocs, variable expansion and all builtins.                                                                 |
-| **cub3D**            |     4     | Raycasting engine inspired by Wolfenstein 3D — DDA algorithm, textures, minimap, built with MLX42.                                                                     |
-| **C++ Modules**      |     4     | 10 modules covering C++98 OOP: Orthodox Canonical Form, polymorphism, templates, STL and exceptions.                                                                   |
-| **Inception**        |     4     | Docker infrastructure from scratch: NGINX + WordPress + MariaDB, persistent volumes, no pre-built images.                                                              |
-| **webserv**          |     4     | HTTP/1.1 web server in C++ with config files, virtual hosts, CGI and non-blocking I/O.                                                                                 |
-| **ft_transcendence** |     5     | Full-stack Pong platform: Django + PostgreSQL + Vanilla JS + Docker. WebSockets, JWT, 2FA, OAuth and 3D rendering.                                                     |
-| **libasm**           |     4     | Re-implement core C functions in x86-64 assembly — ft_strlen, ft_strcpy, ft_strcmp, ft_write, ft_read, ft_strdup. Learn low-level programming and calling conventions. |
-| **dr-quine**         |     4     | Create self-replicating programs (quines) in C — programs that output their own source code. Explore code generation and self-reference.                               |
-| **nm**               |     4     | Re-implement the nm command — display symbol table of object files. Parse ELF format, handle symbols, types and values.                                                |
-
-</div>
+42 is a global network of schools born in Paris in 2013. The curriculum covers systems programming, algorithms, networking and full-stack development through a progression of increasingly complex projects — from low-level C to infrastructure and beyond.
+This repo centralizes every project I've completed at 42 Barcelona, organized as Git submodules.
 
 ---
 
-## 🛠️ Usage
+## 🗂️ Projects
 
-To clone this repository along with all project submodules:
+![Skills](https://skillicons.dev/icons?i=c,cpp,js,linux,bash,docker,nginx)
+
+### Piscine
+
+| Project                                                         | Description                                                         |
+| --------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [Piscine](https://github.com/Molasz/42Piscine)                  | 4-week intensive C bootcamp. Algorithms, memory, Unix fundamentals. |
+| [Piscine Reloaded](https://github.com/Molasz/42PiscineReloaded) | Reinforcement round — optimization and best practices.              |
+| [BSQ](https://github.com/photocatalysta/42-Piscine-BSQ-Project) | Largest square in a grid. Dynamic programming + file parsing.       |
+
+### Common Core
+
+| Project                                                                 | Rank |         Stack          | Description                                                    |
+| ----------------------------------------------------------------------- | :--: | :--------------------: | -------------------------------------------------------------- |
+| [libft](https://github.com/Molasz/42cursus-libft)                       | `0`  |          `C`           | C standard library reimplemented from scratch.                 |
+| [ft_printf](https://github.com/Molasz/42cursus-ft_printf)               | `1`  |          `C`           | `printf` with variadic functions, flags and precision.         |
+| [get_next_line](https://github.com/Molasz/42cursus-get_next_line)       | `1`  |          `C`           | Read any file descriptor one line at a time.                   |
+| [push_swap](https://github.com/Molasz/42cursus-push_swap)               | `2`  |          `C`           | Sort a stack of integers in minimum operations.                |
+| [pipex](https://github.com/Molasz/42cursus-pipex)                       | `2`  |          `C`           | Shell pipes via `fork`, `execve` and fd redirection.           |
+| [FDF](https://github.com/Molasz/42cursus-fdf)                           | `2`  |     `C · MiniLibX`     | Isometric 3D wireframe renderer from elevation maps.           |
+| [philosophers](https://github.com/Molasz/42cursus-philosophers)         | `3`  |          `C`           | Dining philosophers — threads, mutexes, no deadlocks.          |
+| [minishell](https://github.com/Molasz/42cursus-minishell)               | `3`  |          `C`           | Fully functional Unix shell with pipes, heredocs and builtins. |
+| [cub3D](https://github.com/Molasz/42cursus-cub3d)                       | `4`  |      `C · MLX42`       | Raycasting engine inspired by Wolfenstein 3D.                  |
+| [C++ Modules](https://github.com/Molasz/42cursus-cpp_modules)           | `5`  |        `C++98`         | 10 modules — OOP, polymorphism, templates, STL, exceptions.    |
+| [Inception](https://github.com/Molasz/42cursus-inception)               | `5`  |        `Docker`        | NGINX + WordPress + MariaDB. No pre-built images.              |
+| [webserv](https://github.com/Molasz/42cursus-webserv)                   | `5`  |         `C++`          | HTTP/1.1 server — virtual hosts, CGI, non-blocking I/O.        |
+| [ft_transcendence](https://github.com/Molasz/42cursus-ft_transcendence) | `6`  | `Django · JS · Docker` | Full-stack Pong — WebSockets, JWT, 2FA, OAuth, 3D.             |
+
+### Outer Core
+
+| Project                                                |     Stack      | Description                                                  |
+| ------------------------------------------------------ | :------------: | ------------------------------------------------------------ |
+| [libasm](https://github.com/Molasz/42outer-libasm)     |  `x86-64 ASM`  | Core C functions reimplemented in assembly.                  |
+| [dr-quine](https://github.com/Molasz/42outer-dr-quine) | `C · ASM · JS` | Self-replicating programs that output their own source code. |
+| [nm](https://github.com/Molasz/42outer-nm)             |      `C`       | `nm` reimplemented — ELF parsing and symbol tables.          |
+
+## ⚙️ Usage
 
 ```bash
+# Clone with all submodules
 git clone --recursive https://github.com/Molasz/42.git
-```
 
-If you have already cloned it, you can initialize the submodules with:
-
-```bash
+# Or, if already cloned
 git submodule update --init --recursive
 ```
 
 ---
 
-_Created by molasz-a (42 Barcelona)_
+_molasz-a · 42 Barcelona_
