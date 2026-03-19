@@ -2,8 +2,6 @@
 
 <div align="center">
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Molasz&layout=compact&theme=dark&bg_color=0a0e1a&title_color=1ae0c8&text_color=7ab5b0&border_color=1ae0c840&langs_count=6&hide_border=false)
-
 <a href="https://molasz.github.io/42/" target="_blank">
   <img src="assets/mapa_42.png" alt="42 Interactive Project Map" width="420" style="border-radius: 12px;" />
 </a>
