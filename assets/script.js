@@ -12,6 +12,8 @@ const ANIM_GROUPS = [
   "rank-4",
   "rank-5",
   "rank-6",
+  "title-we",
+  "nodes-work",
   "title-oc",
   "nodes-oc",
 ];
@@ -307,6 +309,48 @@ const outerCoreNodes = [
   },
 ];
 
+const workExperienceNodes = [
+  {
+    x: -130,
+    y: 600,
+    r: 26,
+    lines: ["CV"],
+    fs: 10,
+    c: 1,
+    lv: "Work Experience",
+    lbl: "CV",
+    animGroup: "nodes-work",
+    desc: "Download my CV — experience & technical skills overview",
+    repo: "assets/CV.pdf",
+  },
+  {
+    x: -165,
+    y: 660,
+    r: 26,
+    lines: ["Work", "Experience I"],
+    fs: 8,
+    c: 1,
+    lv: "Work Experience",
+    lbl: "Work experience I",
+    animGroup: "nodes-work",
+    desc: "Fullstack Tech Lead · 6 months Led a team of 7 developers on an Angular + .NET application, owning architecture design, feature implementation, and code quality standards.",
+  },
+  /*
+  {
+    x: -95,
+    y: 680,
+    r: 26,
+    lines: ["Parti", "Time I"],
+    fs: 10,
+    c: 1,
+    lv: "Work Experience",
+    lbl: "Part time",
+    animGroup: "nodes-work",
+    desc: "6 months part-time experience as a fullstack techlead",
+  }
+  */
+];
+
 const RINGS = [
   { r: 80, lbl: "1" },
   { r: 135, lbl: "2" },
@@ -387,13 +431,20 @@ const textStyle = {
 const titleCC = tx("Common core", { ...textStyle });
 const titlePis = tx("Piscine", { ...textStyle, x: textStyle.x - 450 });
 const titleOC = tx("Outer Core", { ...textStyle, x: textStyle.x + 450 });
+const titleWE = tx("Work Experience", { ...textStyle, x: -130, y: 560 });
 registerAnim(titlePis, "title-piscine");
 registerAnim(titleCC, "title-cc");
 registerAnim(titleOC, "title-oc");
-svg.append(titleCC, titlePis, titleOC);
+registerAnim(titleWE, "title-we");
+svg.append(titleCC, titlePis, titleOC, titleWE);
 
 // Nodes
-for (const p of [...piscineNodes, ...commonCoreNodes, ...outerCoreNodes]) {
+for (const p of [
+  ...piscineNodes,
+  ...commonCoreNodes,
+  ...outerCoreNodes,
+  ...workExperienceNodes,
+]) {
   const g = mk("g", { class: "nd" });
   g.append(
     mk("circle", {
@@ -433,7 +484,7 @@ for (const p of [...piscineNodes, ...commonCoreNodes, ...outerCoreNodes]) {
     g.querySelector("circle").removeAttribute("opacity");
     tip.style.opacity = "0";
   });
-  g.addEventListener("click", () => window.open(p.repo, "_blank"));
+  if (p.repo) g.addEventListener("click", () => window.open(p.repo, "_blank"));
   registerAnim(g, p.animGroup);
   svg.append(g);
 }
