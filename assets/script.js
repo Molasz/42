@@ -387,6 +387,33 @@ registerAnim(bgFill, "bg-rings");
 registerAnim(bgBorder, "bg-rings");
 svg.append(bgFill, bgBorder);
 
+const satelliteCircles = [
+  { cx: -130, cy: 30, r: 40, animGroup: "nodes-piscine" },
+  { cx: 770, cy: 30, r: 40, animGroup: "nodes-oc" },
+  { cx: -130, cy: 620, r: 40, animGroup: "nodes-work" },
+];
+
+for (const sc of satelliteCircles) {
+  const bgFill = mk("circle", {
+    cx: sc.cx,
+    cy: sc.cy,
+    r: sc.r,
+    fill: "#0a1628",
+  });
+  const bgBorder = mk("circle", {
+    cx: sc.cx,
+    cy: sc.cy,
+    r: sc.r,
+    fill: "none",
+    stroke: "#1ae0c8",
+    "stroke-width": 0.4,
+    opacity: 0.1,
+  });
+  registerAnim(bgFill, sc.animGroup);
+  registerAnim(bgBorder, sc.animGroup);
+  svg.append(bgFill, bgBorder);
+}
+
 // Orbit rings + level labels
 for (const rg of RINGS) {
   const ring = mk("circle", {
