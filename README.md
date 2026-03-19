@@ -2,11 +2,11 @@
 
 <div align="center">
 
-<a href="https://molasz.github.io/42/" target="_blank">
+<a href="https://molasz.github.io/42-graph/" target="_blank">
   <img src="assets/mapa_42.png" alt="42 Interactive Project Map" width="420" style="border-radius: 12px;" />
 </a>
 
-**[→ Interactive Project Map ←](https://molasz.github.io/42/)**
+**[→ Interactive Project Map ←](https://molasz.github.io/42-graph/)**
 
 </div>
 
