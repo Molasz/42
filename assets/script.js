@@ -90,7 +90,6 @@ const piscineNodes = [
 ];
 
 const commonCoreNodes = [
-  // ── COMMON CORE ──
   {
     x: 320,
     y: 320,
@@ -299,7 +298,6 @@ const outerCoreNodes = [
   },
 ];
 
-// ─── ORBIT RINGS ─────────────────────────────────────────────────────────────
 const RINGS = [
   { r: 80, lbl: "1" },
   { r: 135, lbl: "2" },
@@ -309,7 +307,6 @@ const RINGS = [
   { r: 345, lbl: "6" },
 ];
 
-// ─── HELPERS ─────────────────────────────────────────────────────────────────
 function mk(tag, a = {}) {
   const e = document.createElementNS(N, tag);
   for (const [k, v] of Object.entries(a)) e.setAttribute(k, v);
@@ -321,8 +318,6 @@ function tx(t, a = {}) {
   e.textContent = t;
   return e;
 }
-
-// ─── BUILD SVG ───────────────────────────────────────────────────────────────
 
 // Background circles
 const bgFill = mk("circle", { cx: 320, cy: 320, r: 345, fill: "#0a1628" });
@@ -439,7 +434,7 @@ function mv(e) {
   tip.style.top = e.clientY - 8 + "px";
 }
 
-// ─── ZOOM & PAN ──────────────────────────────────────────────────────────────
+// Zoom
 let scale = 2.7;
 const minScale = 0.5;
 const maxScale = 3;
@@ -499,4 +494,22 @@ svg.addEventListener("mouseleave", () => {
   svg.style.cursor = "grab";
 });
 
-playIntro();
+let introPlayed = false;
+
+function tryPlayIntro() {
+  if (
+    document.visibilityState === "visible" &&
+    ANIM_REGISTRY.length > 0 &&
+    !introPlayed
+  ) {
+    replayIntro();
+    introPlayed = true;
+    document.removeEventListener("visibilitychange", tryPlayIntro);
+  }
+}
+
+document.addEventListener("visibilitychange", tryPlayIntro);
+
+window.addEventListener("load", () => {
+  setTimeout(tryPlayIntro, 100);
+});
