@@ -1,9 +1,3 @@
-# Mapa de Proyectos 42
-
-# 42 Barcelona — molasz-a
-
-[Ir a la página principal](index.html)
-
 # 42 Barcelona — molasz-a
 
 Welcome to my 42 Common Core journey. This repository serves as a central hub for all the projects I have completed at 42 Barcelona, organized via Git submodules.
