@@ -267,7 +267,7 @@ const commonCoreNodes = [
 
 const outerCoreNodes = [
   {
-    x: 740,
+    x: 735,
     y: 0,
     r: 26,
     lines: ["libasm"],
@@ -281,7 +281,7 @@ const outerCoreNodes = [
   },
 
   {
-    x: 810,
+    x: 805,
     y: 0,
     r: 26,
     lines: ["dr-quine"],
@@ -295,7 +295,7 @@ const outerCoreNodes = [
   },
 
   {
-    x: 775,
+    x: 770,
     y: 60,
     r: 26,
     lines: ["nm"],
@@ -312,7 +312,7 @@ const outerCoreNodes = [
 const workExperienceNodes = [
   {
     x: -130,
-    y: 600,
+    y: 590,
     r: 26,
     lines: ["CV"],
     fs: 10,
@@ -325,7 +325,7 @@ const workExperienceNodes = [
   },
   {
     x: -165,
-    y: 660,
+    y: 650,
     r: 26,
     lines: ["Work", "Experience I"],
     fs: 8,
@@ -338,7 +338,7 @@ const workExperienceNodes = [
   /*
   {
     x: -95,
-    y: 680,
+    y: 670,
     r: 26,
     lines: ["Parti", "Time I"],
     fs: 10,
@@ -424,14 +424,12 @@ const textStyle = {
   "letter-spacing": "2px",
   "text-transform": "uppercase",
   opacity: 0.8,
-  y: -40,
-  x: 320,
 };
 
-const titleCC = tx("Common core", { ...textStyle });
-const titlePis = tx("Piscine", { ...textStyle, x: textStyle.x - 450 });
-const titleOC = tx("Outer Core", { ...textStyle, x: textStyle.x + 450 });
-const titleWE = tx("Work Experience", { ...textStyle, x: -130, y: 560 });
+const titleCC = tx("Common core", { ...textStyle, x: 320, y: -40 });
+const titlePis = tx("Piscine", { ...textStyle, x: -130, y: -40 });
+const titleOC = tx("Outer Core", { ...textStyle, x: 770, y: -40 });
+const titleWE = tx("Work Experience", { ...textStyle, x: -130, y: 550 });
 registerAnim(titlePis, "title-piscine");
 registerAnim(titleCC, "title-cc");
 registerAnim(titleOC, "title-oc");
