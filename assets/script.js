@@ -262,6 +262,7 @@ const commonCoreNodes = [
     repo: "https://github.com/Molasz/42cursus-ft_transcendence",
   },
 ];
+
 const outerCoreNodes = [
   {
     x: 740,
