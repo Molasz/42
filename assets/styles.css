@@ -221,18 +221,6 @@ footer {
   }
 }
 
-@media (min-width: 1024px) {
-  #wrap {
-    max-width: 800px;
-  }
-}
-
-@media (min-width: 1440px) {
-  #wrap {
-    max-width: 900px;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

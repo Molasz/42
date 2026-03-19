@@ -47,8 +47,7 @@ const N = "http://www.w3.org/2000/svg";
 const svg = document.getElementById("graph");
 const tip = document.getElementById("tip");
 
-const D = [
-  // ── PISCINE ──
+const piscineNodes = [
   {
     x: -165,
     y: 0,
@@ -88,7 +87,9 @@ const D = [
     desc: "The classic 'Biggest Square' problem — find the largest square in a grid with obstacles, using dynamic programming and efficient file parsing.",
     repo: "https://github.com/photocatalysta/42-Piscine-BSQ-Project",
   },
+];
 
+const commonCoreNodes = [
   // ── COMMON CORE ──
   {
     x: 320,
@@ -192,8 +193,8 @@ const D = [
   },
 
   {
-    x: 522,
-    y: 173,
+    x: 518,
+    y: 176,
     r: 26,
     lines: ["cub3D"],
     fs: 11,
@@ -201,59 +202,60 @@ const D = [
     lbl: "cub3D",
     animGroup: "rank-4",
     desc: "Raycasting engine inspired by Wolfenstein 3D — DDA algorithm, textures, minimap, built with MLX42.",
-    repo: "https://github.com/asiernc/cub3d",
-  },
-  {
-    x: 522,
-    y: 467,
-    r: 26,
-    lines: ["C++", "Modules"],
-    fs: 10,
-    lv: "Level 4",
-    lbl: "C++ Modules",
-    animGroup: "rank-4",
-    desc: "10 modules covering C++98 OOP: Orthodox Canonical Form, polymorphism, templates, STL and exceptions.",
-    repo: "https://github.com/Molasz/42cursus-cpp_modules",
-  },
-  {
-    x: 243,
-    y: 558,
-    r: 26,
-    lines: ["Inception"],
-    fs: 8,
-    lv: "Level 4",
-    lbl: "Inception",
-    animGroup: "rank-4",
-    desc: "Docker infrastructure from scratch: NGINX + WordPress + MariaDB, persistent volumes, no pre-built images.",
-    repo: "https://github.com/Molasz/42cursus-inception",
-  },
-  {
-    x: 70,
-    y: 320,
-    r: 26,
-    lines: ["webserv"],
-    fs: 9,
-    lv: "Level 4",
-    lbl: "webserv",
-    animGroup: "rank-4",
-    desc: "HTTP/1.1 web server in C++ with config files, virtual hosts, CGI and non-blocking I/O.",
-    repo: "https://github.com/DISN-kolo/webserv",
+    repo: "https://github.com/Molasz/42cursus-cub3d",
   },
 
   {
     x: 320,
-    y: 600,
-    r: 38,
-    lines: ["ft_transcendence"],
+    y: 20,
+    r: 26,
+    lines: ["C++", "Modules"],
+    fs: 10,
+    lv: "Level 5",
+    lbl: "C++ Modules",
+    animGroup: "rank-5",
+    desc: "10 modules covering C++98 OOP: Orthodox Canonical Form, polymorphism, templates, STL and exceptions.",
+    repo: "https://github.com/Molasz/42cursus-cpp_modules",
+  },
+  {
+    x: 580,
+    y: 470,
+    r: 26,
+    lines: ["Inception"],
     fs: 8,
     lv: "Level 5",
-    lbl: "ft_transcendence",
+    lbl: "Inception",
     animGroup: "rank-5",
-    desc: "Full-stack Pong platform: Django + PostgreSQL + Vanilla JS + Docker. WebSockets, JWT, 2FA, OAuth and 3D rendering.",
-    repo: "https://github.com/MartiVallhonrat/ft_transcendence",
+    desc: "Docker infrastructure from scratch: NGINX + WordPress + MariaDB, persistent volumes, no pre-built images.",
+    repo: "https://github.com/Molasz/42cursus-inception",
+  },
+  {
+    x: 60,
+    y: 470,
+    r: 26,
+    lines: ["webserv"],
+    fs: 9,
+    lv: "Level 5",
+    lbl: "webserv",
+    animGroup: "rank-5",
+    desc: "HTTP/1.1 web server in C++ with config files, virtual hosts, CGI and non-blocking I/O.",
+    repo: "https://github.com/Molasz/42cursus-webserv",
   },
 
-  // ── OUTER CORE ──
+  {
+    x: 320,
+    y: 665,
+    r: 34,
+    lines: ["ft_transcendence"],
+    fs: 8,
+    lv: "Level 6",
+    lbl: "ft_transcendence",
+    animGroup: "rank-6",
+    desc: "Full-stack Pong platform: Django + PostgreSQL + Vanilla JS + Docker. WebSockets, JWT, 2FA, OAuth and 3D rendering.",
+    repo: "https://github.com/Molasz/42cursus-ft_transcendence",
+  },
+];
+const outerCoreNodes = [
   {
     x: 740,
     y: 0,
@@ -387,7 +389,7 @@ registerAnim(titleOC, "title-oc");
 svg.append(titleCC, titlePis, titleOC);
 
 // Nodes
-for (const p of D) {
+for (const p of [...piscineNodes, ...commonCoreNodes, ...outerCoreNodes]) {
   const g = mk("g", { class: "nd" });
   g.append(
     mk("circle", {
@@ -444,7 +446,7 @@ const maxScale = 3;
 
 const initialVbSize = 640 * scale;
 const initialVbX = 320 - initialVbSize / 2;
-const initialVbY = 720 - initialVbSize / 2;
+const initialVbY = 700 - initialVbSize / 2;
 svg.setAttribute(
   "viewBox",
   `${initialVbX} ${initialVbY} ${initialVbSize} ${initialVbSize}`,
