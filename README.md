@@ -23,6 +23,8 @@ This repo centralizes every project I've completed at 42 Barcelona, organized as
 
 ### Piscine
 
+Core bootcamp challenges that establish C programming fundamentals and Unix proficiency.
+
 | Project                                                         | Description                                                         |
 | --------------------------------------------------------------- | ------------------------------------------------------------------- |
 | [Piscine](https://github.com/Molasz/42Piscine)                  | 4-week intensive C bootcamp. Algorithms, memory, Unix fundamentals. |
@@ -30,6 +32,8 @@ This repo centralizes every project I've completed at 42 Barcelona, organized as
 | [BSQ](https://github.com/photocatalysta/42-Piscine-BSQ-Project) | Largest square in a grid. Dynamic programming + file parsing.       |
 
 ### Common Core
+
+Foundational parcours of progressively harder projects for systems programming, data structures, and low-level C mastery.
 
 | Project                                                                 | Rank |         Stack          | Description                                                    |
 | ----------------------------------------------------------------------- | :--: | :--------------------: | -------------------------------------------------------------- |
@@ -49,11 +53,23 @@ This repo centralizes every project I've completed at 42 Barcelona, organized as
 
 ### Outer Core
 
+Advanced and optional projects showcasing low-level system internals, assembly, and tools engineering.
+
 | Project                                                |     Stack      | Description                                                  |
 | ------------------------------------------------------ | :------------: | ------------------------------------------------------------ |
-| [libasm](https://github.com/Molasz/42outer-libasm)     |  `x86-64 ASM`  | Core C functions reimplemented in assembly.                  |
+| [libasm](https://github.com/Molasz/42outer-libasm)     |     `ASM`      | Core C functions reimplemented in assembly.                  |
 | [dr-quine](https://github.com/Molasz/42outer-dr-quine) | `C · ASM · JS` | Self-replicating programs that output their own source code. |
-| [nm](https://github.com/Molasz/42outer-nm)             |      `C`       | `nm` reimplemented — ELF parsing and symbol tables.          |
+| [nm](https://github.com/Molasz/42outer-nm)             |      `C`       | nm reimplemented — ELF parsing and symbol tables.            |
+| [malloc](https://github.com/Molasz/42outer-malloc)     |      `C`       | Malloc reimplemented — Custom memory allocator.              |
+
+### Tools
+
+Utility projects that support productivity, visualization, and memory debugging workflows.
+
+| Project                                        |    Stack    | Description                                           |
+| ---------------------------------------------- | :---------: | ----------------------------------------------------- |
+| [42-graph](https://github.com/Molasz/42-graph) | `HTML · JS` | Interactive visual map of the 42 project progression. |
+| [vimrc](https://github.com/Molasz/vimrc)       | `VimScript` | Personal Vim configuration and workflow enhancements. |
 
 ## ⚙️ Usage
 
