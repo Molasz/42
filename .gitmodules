@@ -55,3 +55,12 @@
 [submodule "outer-core/nm"]
 	path = outer-core/nm
 	url = https://github.com/Molasz/42outer-nm
+[submodule "tools/vimrc"]
+	path = tools/vimrc
+	url = https://github.com/Molasz/vimrc
+[submodule "tools/42-graph"]
+	path = tools/42-graph
+	url = https://github.com/Molasz/42-graph
+[submodule "tools/42-malloc"]
+	path = tools/42-malloc
+	url = https://github.com/Molasz/42outer-malloc
