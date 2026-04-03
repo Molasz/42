@@ -61,6 +61,6 @@
 [submodule "tools/42-graph"]
 	path = tools/42-graph
 	url = https://github.com/Molasz/42-graph
-[submodule "tools/42-malloc"]
-	path = tools/42-malloc
+[submodule "outer-core/malloc"]
+	path = outer-core/malloc
 	url = https://github.com/Molasz/42outer-malloc
