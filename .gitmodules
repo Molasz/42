@@ -64,3 +64,6 @@
 [submodule "outer-core/malloc"]
 	path = outer-core/malloc
 	url = https://github.com/Molasz/42outer-malloc
+[submodule "outer-core/ls"]
+	path = outer-core/ls
+	url = git@github.com:Molasz/42outer-ls.git

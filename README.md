@@ -61,6 +61,7 @@ Advanced and optional projects showcasing low-level system internals, assembly, 
 | [dr-quine](https://github.com/Molasz/42outer-dr-quine) | `C · ASM · JS` | Self-replicating programs that output their own source code. |
 | [nm](https://github.com/Molasz/42outer-nm)             |      `C`       | nm reimplemented — ELF parsing and symbol tables.            |
 | [malloc](https://github.com/Molasz/42outer-malloc)     |      `C`       | Malloc reimplemented — Custom memory allocator.              |
+| [ls](https://github.com/Molasz/42outer-ls)             |      `C`       | Ls reimplemented — Directory listing.                        |
 
 ### Tools
 
