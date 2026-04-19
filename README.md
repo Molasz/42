@@ -62,6 +62,7 @@ Advanced and optional projects showcasing low-level system internals, assembly, 
 | [nm](https://github.com/Molasz/42outer-nm)             |      `C`       | nm reimplemented — ELF parsing and symbol tables.            |
 | [malloc](https://github.com/Molasz/42outer-malloc)     |      `C`       | Malloc reimplemented — Custom memory allocator.              |
 | [ls](https://github.com/Molasz/42outer-ls)             |      `C`       | Ls reimplemented — Directory listing.                        |
+| [Piscine Embedded](https://github.com/Molasz/42outer-embedded) | `C · AVR` | 42 Paris — 3-week intensive embedded programming bootcamp. Microcontrollers, sensors, and low-level hardware interaction. |
 
 ### Tools
 

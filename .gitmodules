@@ -67,3 +67,6 @@
 [submodule "outer-core/ls"]
 	path = outer-core/ls
 	url = git@github.com:Molasz/42outer-ls.git
+[submodule "outer-core/piscine-embedded"]
+	path = outer-core/piscine-embedded
+	url = git@github.com:Molasz/42outer-embedded.git
