@@ -13,6 +13,7 @@
 [submodule "common-core/rank-1/ft_printf"]
 	path = common-core/rank-1/ft_printf
 	url = https://github.com/Molasz/42cursus-printf
+	branch = main
 [submodule "common-core/rank-1/get_next_line"]
 	path = common-core/rank-1/get_next_line
 	url = https://github.com/Molasz/42cursus-get_next_line
@@ -61,6 +62,7 @@
 [submodule "tools/42-graph"]
 	path = tools/42-graph
 	url = https://github.com/Molasz/42-graph
+	branch = main
 [submodule "outer-core/malloc"]
 	path = outer-core/malloc
 	url = https://github.com/Molasz/42outer-malloc
@@ -70,3 +72,4 @@
 [submodule "outer-core/piscine-embedded"]
 	path = outer-core/piscine-embedded
 	url = git@github.com:Molasz/42outer-embedded.git
+	branch = main
