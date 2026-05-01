@@ -1,0 +1,21 @@
+name: Update submodules
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          git submodule update --remote
+          git config user.email "bot@github.com"
+          git config user.name "github-actions"
+          git add .
+          git diff --staged --quiet || git commit -m "chore: update submodules"
+          git push
