@@ -94,3 +94,7 @@
 	path = piscine/piscineReloaded
 	url = https://github.com/Molasz/42PiscineReloaded
 	branch = main
+[submodule "outer-core/bootcamp-elec"]
+	path = outer-core/bootcamp-elec
+	url = https://github.com/Molasz/42outer-bootcamp-elec
+	branch = main

@@ -63,6 +63,7 @@ Advanced and optional projects showcasing low-level system internals, assembly, 
 | [malloc](https://github.com/Molasz/42outer-malloc)     |      `C`       | Malloc reimplemented — Custom memory allocator.              |
 | [ls](https://github.com/Molasz/42outer-ls)             |      `C`       | Ls reimplemented — Directory listing.                        |
 | [Piscine Embedded](https://github.com/Molasz/42outer-embedded) | `C · AVR` | 42 Paris — 3-week intensive embedded programming bootcamp. Microcontrollers, sensors, and low-level hardware interaction. |
+| [Bootcamp Electronics](https://github.com/Molasz/42outer-bootcamp-elec) | `Kicad · Soldering` | 42 Paris — 2 week electronics bootcamp. Designing and soldering a custom PCB with Kicad, learning about components, circuits and hardware prototyping. |
 
 ### Tools
 
